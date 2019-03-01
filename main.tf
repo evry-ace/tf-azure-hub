@@ -19,7 +19,7 @@ resource "azurerm_public_ip" "hub-pip" {
   location            = "${var.hub_location}"
 
   allocation_method = "Static"
-  sku = "Standard"
+  sku               = "Standard"
 }
 
 resource "azurerm_route_table" "spoke-rt" {
@@ -48,7 +48,6 @@ resource "azurerm_firewall" "hub-firewall" {
     public_ip_address_id = "${azurerm_public_ip.hub-pip.id}"
   }
 }
-
 
 // This NEEDS to be called GatewaySubnet
 resource "azurerm_subnet" "hub-gw-subnet" {
